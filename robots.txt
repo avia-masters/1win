@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ваш-сайт.com/sitemap.xml
+
+# Запрещаем индексацию служебных страниц
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /admin/
+Disallow: /login.html
+Disallow: /private/
+Disallow: /assets/css/
+Disallow: /assets/js/
