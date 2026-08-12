@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1Win — Космос твоих побед</title>
+    <meta name="description" content="1Win — ставки на спорт, киберспорт и казино. Бонус 500% на первый депозит. Регистрируйся и выигрывай!" />
+    
+    <!-- Шрифты Google Fonts (замена локальным) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- Иконка сайта -->
+    <link rel="icon" type="image/svg+xml" href="svg/logo.svg" />
+
+    <style>
+        /* ============================
+                   БАЗОВЫЕ СТИЛИ И ПЕРЕМЕННЫЕ
+                   ============================ */
+        :root {
+            --bg-dark: #141415;
+            --bg-card: rgba(255, 255, 255, 0.05);
+            --bg-nav: #1d1e20;
+            --blue: #0075ff;
+            --green: #00b24b;
+            --white: #f0f2f5;
+            --gray: #9aa1b1;
+            --radius: 12px;
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ============================
+                   СБРОС И БАЗА
+                   ============================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background: var(--bg-dark);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ============================
+                   ШАПКА (СТИКИ)
+                   ============================ */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(20, 20, 21, 0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 12px 0;
+            transition: var(--transition);
+        }
+
+        .header.scrolled {
+            background: rgba(20, 20, 21, 0.98);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-link {
+            flex-shrink: 0;
+        }
+
+        .logo-img {
+            width: 120px;
+            height: auto;
+            transition: var(--transition);
+        }
+
+        .logo-img:hover {
+            opacity: 0.85;
+        }
+
+        /* ---- Кнопки входа/регистрации ---- */
+        .header-buttons {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-login {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--white);
+        }
+
+        .btn-login:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .btn-reg {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .btn-reg:hover {
+            background: #00cc55;
+            transform: scale(1.02);
+        }
+
+        .btn-blue {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .btn-blue:hover {
+            background: #1a8aff;
+            transform: scale(1.02);
+        }
+
+        /* ---- Бургер-кнопка ---- */
+        .burger-btn {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .burger-btn span {
+            display: block;
+            width: 26px;
+            height: 2.5px;
+            background: var(--white);
+            border-radius: 4px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+
+        .burger-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger-btn.active span:nth-child(2) {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+
+        .burger-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        /* ---- Бургер-меню (выпадающее) ---- */
+        .burger-menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 380px;
+            height: 100vh;
+            background: var(--bg-nav);
+            padding: 80px 30px 30px;
+            transition: var(--transition);
+            z-index: 999;
+            overflow-y: auto;
+            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
+        }
+
+        .burger-menu.open {
+            right: 0;
+        }
+
+        .burger-menu__close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 28px;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
+
+        .burger-menu__close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+
+        .burger-menu__list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .burger-menu__link {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 18px;
+            border-radius: var(--radius);
+            font-size: 16px;
+            font-weight: 500;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .burger-menu__link:hover,
+        .burger-menu__link.active {
+            background: rgba(0, 117, 255, 0.12);
+            color: var(--white);
+        }
+
+        .burger-menu__link svg {
+            width: 22px;
+            height: 22px;
+            flex-shrink: 0;
+        }
+
+        .burger-menu__divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.06);
+            margin: 10px 0 16px;
+        }
+
+        .burger-menu__footer {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .burger-menu__footer .btn {
+            flex: 1;
+        }
+
+        /* ---- Оверлей ---- */
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 998;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* ============================
+                   СЕКЦИИ
+                   ============================ */
+        .section {
+            padding: 100px 0 80px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--white) 40%, var(--blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* ---- Hero ---- */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Космический фон */
+        #hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(0, 117, 255, 0.12) 0%, transparent 70%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 180, 75, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(255, 0, 106, 0.06) 0%, transparent 50%),
+                var(--bg-dark);
+            z-index: 0;
+        }
+
+        /* Звёзды через SVG паттерн */
+        #hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='30' cy='30' r='1.5' fill='white' opacity='0.5'/%3E%3Ccircle cx='70' cy='150' r='1' fill='white' opacity='0.3'/%3E%3Ccircle cx='150' cy='40' r='2' fill='white' opacity='0.6'/%3E%3Ccircle cx='180' cy='120' r='1' fill='white' opacity='0.25'/%3E%3Ccircle cx='10' cy='180' r='1.5' fill='white' opacity='0.4'/%3E%3Ccircle cx='100' cy='80' r='1' fill='white' opacity='0.35'/%3E%3Ccircle cx='55' cy='60' r='0.8' fill='white' opacity='0.2'/%3E%3Ccircle cx='160' cy='170' r='1.2' fill='white' opacity='0.45'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+            z-index: 0;
+            animation: twinkle 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 117, 255, 0.15);
+            border: 1px solid rgba(0, 117, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 13px;
+            color: var(--blue);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+
+        .hero-title {
+            font-size: 52px;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, #0075ff, #00b24b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 18px;
+            color: var(--gray);
+            line-height: 1.7;
+            max-width: 520px;
+            margin-bottom: 28px;
+        }
+
+        .hero-bonus {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd599, #ff9500);
+            color: #1a1a1a;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 18px;
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .hero-buttons .btn {
+            padding: 14px 32px;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        /* ---- 3D-монета (плавающая) ---- */
+        .floating-coin {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 220px;
+            height: 220px;
+            z-index: 1;
+            opacity: 0.15;
+            animation: floatCoin 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes floatCoin {
+            0%,
+            100% {
+                transform: translateY(-50%) rotate(0deg) scale(1);
+            }
+            50% {
+                transform: translateY(-60%) rotate(10deg) scale(1.05);
+            }
+        }
+
+        .floating-coin svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 60px rgba(0, 117, 255, 0.2));
+        }
+
+        /* ---- Секция "О нас" ---- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .about-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        .about-text strong {
+            color: var(--white);
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+        }
+
+        .about-facts {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .fact-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            padding: 24px 20px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .fact-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 117, 255, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        .fact-card .icon {
+            font-size: 32px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .fact-card .number {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--blue), var(--green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .fact-card .label {
+            font-size: 14px;
+            color: var(--gray);
+            margin-top: 4px;
+        }
+
+        /* ---- Игры ---- */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 18px;
+            margin-top: 30px;
+        }
+
+        .game-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            padding: 24px 16px;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .game-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(0, 117, 255, 0.3);
+            box-shadow: var(--shadow);
+        }
+
+        .game-card .emoji {
+            font-size: 48px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .game-card .name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+
+        .game-card .tag {
+            font-size: 12px;
+            color: var(--gray);
+        }
+
+        .game-card .play-btn {
+            margin-top: 12px;
+            padding: 6px 20px;
+            border-radius: 50px;
+            background: var(--blue);
+            color: var(--white);
+            font-size: 12px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .game-card .play-btn:hover {
+            background: #1a8aff;
+            transform: scale(1.05);
+        }
+
+        /* ---- Преимущества ---- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: var(--radius);
+            padding: 28px 22px;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 117, 255, 0.15);
+        }
+
+        .feature-item .icon {
+            font-size: 28px;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .feature-item h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .feature-item p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* ---- Инструкция ---- */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            text-align: center;
+            padding: 24px 16px;
+            background: var(--bg-card);
+            border-radius: var(--radius);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: var(--transition);
+        }
+
+        .step-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(0, 117, 255, 0.15);
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--blue);
+            font-size: 20px;
+            font-weight: 900;
+            color: var(--white);
+            margin-bottom: 12px;
+        }
+
+        .step-item h4 {
+            font-size: 17px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .step-item p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* ---- Футер ---- */
+        .footer {
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 40px 0 30px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+        }
+
+        .footer-col a {
+            display: block;
+            font-size: 14px;
+            color: var(--gray);
+            padding: 4px 0;
+            transition: var(--transition);
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            padding-top: 20px;
+            font-size: 13px;
+            color: var(--gray);
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .footer-bottom .age {
+            color: #ff4444;
+            font-weight: 700;
+        }
+
+        /* ============================
+                   АНИМАЦИИ ПРИ СКРОЛЛЕ
+                   ============================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-left.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal-right.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* ============================
+                   АДАПТИВ
+                   ============================ */
+        @media (max-width: 992px) {
+            .hero-title {
+                font-size: 40px;
+            }
+
+            .floating-coin {
+                width: 150px;
+                height: 150px;
+                opacity: 0.1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-facts {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-buttons .btn {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .btn-reg {
+                padding: 8px 14px;
+            }
+
+            .burger-btn {
+                display: flex;
+            }
+
+            .hero-title {
+                font-size: 32px;
+            }
+
+            .hero-desc {
+                font-size: 16px;
+            }
+
+            .hero-buttons .btn {
+                padding: 12px 24px;
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 60px 0 50px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .floating-coin {
+                display: none;
+            }
+
+            .about-facts {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .burger-menu {
+                max-width: 100%;
+                padding: 70px 20px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-img {
+                width: 90px;
+            }
+
+            .header-buttons .btn {
+                padding: 6px 12px;
+                font-size: 11px;
+            }
+
+            .hero-title {
+                font-size: 26px;
+            }
+
+            .hero-bonus {
+                font-size: 14px;
+                padding: 6px 14px;
+            }
+
+            .games-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-facts {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* Кнопка "Наверх" */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--blue);
+            color: var(--white);
+            border: none;
+            font-size: 22px;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 117, 255, 0.3);
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .scroll-top:hover {
+            transform: scale(1.08);
+            background: #1a8aff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================
+    ШАПКА
+    ============================ -->
+    <header class="header" id="header">
+        <div class="header-container">
+            <a href="#hero" class="logo-link">
+                <img src="svg/logo.svg" alt="1win" class="logo-img" />
+            </a>
+
+            <div class="header-buttons">
+                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-login">Вход</a>
+                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-reg">Регистрация</a>
+                <button class="burger-btn" id="burgerBtn" aria-label="Меню">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================
+    БУРГЕР-МЕНЮ
+    ============================ -->
+    <div class="overlay" id="overlay"></div>
+
+    <nav class="burger-menu" id="burgerMenu">
+        <button class="burger-menu__close" id="burgerClose">✕</button>
+
+        <ul class="burger-menu__list">
+            <li><a href="#hero" class="burger-menu__link active" data-section="hero">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
+                    Главная
+                </a></li>
+            <li><a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="burger-menu__link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M8 2v20M16 2v20M2 8h20M2 16h20"/></svg>
+                    Казино
+                </a></li>
+            <li><a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="burger-menu__link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    Бонусы
+                </a></li>
+            <li><a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="burger-menu__link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M2 12h20"/></svg>
+                    Спорт
+                </a></li>
+            <li><a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="burger-menu__link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg>
+                    Мобильное приложение
+                </a></li>
+            <li><a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="burger-menu__link">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4v16h16"/><path d="M8 12l4-4 4 4"/><path d="M12 8v10"/></svg>
+                    Зеркала
+                </a></li>
+        </ul>
+
+        <div class="burger-menu__divider"></div>
+
+        <div class="burger-menu__footer">
+            <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-login" style="flex:1;">Вход</a>
+            <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-reg" style="flex:1;">Регистрация</a>
+        </div>
+    </nav>
+
+    <!-- ============================
+    HERO
+    ============================ -->
+    <section class="section" id="hero">
+        <div class="container hero-content">
+            <div class="hero-badge">🏆 Официальный партнёр</div>
+            <h1 class="hero-title">
+                Космос твоих<br /><span>побед</span>
+            </h1>
+            <p class="hero-desc">
+                Ставки на спорт, киберспорт и казино в одной платформе.
+                Начни выигрывать с бонусом до 500% на первый депозит.
+            </p>
+            <div class="hero-bonus">🎁 +500% на первый депозит</div>
+            <div class="hero-buttons">
+                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-reg">Начать выигрывать</a>
+                <a href="#about" class="btn btn-login">Подробнее</a>
+            </div>
+        </div>
+
+        <!-- Плавающая 3D-монета -->
+        <div class="floating-coin">
+            <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="100" cy="100" r="90" fill="url(#coinGrad)" stroke="#0075FF" stroke-width="4"/>
+                <circle cx="100" cy="100" r="70" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+                <text x="100" y="115" font-family="Arial" font-size="36" font-weight="900" fill="white" text-anchor="middle">1WIN</text>
+                <text x="100" y="145" font-family="Arial" font-size="16" fill="#9AA1B1" text-anchor="middle">BET</text>
+                <defs>
+                    <radialGradient id="coinGrad" cx="40%" cy="35%">
+                        <stop offset="0%" stop-color="#FFD700"/>
+                        <stop offset="100%" stop-color="#FF8C00"/>
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ============================
+    О НАС
+    ============================ -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Почему 1Win?</h2>
+                <p class="section-subtitle">
+                    Узнайте, почему миллионы игроков выбирают нашу платформу
+                </p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-text reveal-left">
+                    <p>
+                        <strong>1Win</strong> — одна из ведущих букмекерских компаний России,
+                        работающая с <strong>2003 года</strong>. За это время мы создали
+                        платформу, где каждый игрок чувствует себя уверенно и комфортно.
+                    </p>
+                    <p>
+                        Наша деятельность лицензирована <strong>ФНС РФ № 5</strong>,
+                        а все расчёты проходят через <strong>Первый ЦУПИС</strong> —
+                        это гарантия честности и безопасности ваших средств.
+                    </p>
+                    <p>
+                        Мы предлагаем ставки на <strong>30+ видов спорта</strong>,
+                        киберспорт, а также обширную коллекцию игровых автоматов.
+                    </p>
+                </div>
+
+                <div class="about-facts reveal-right">
+                    <div class="fact-card">
+                        <span class="icon">🏛️</span>
+                        <div class="number">2003</div>
+                        <div class="label">Год основания</div>
+                    </div>
+                    <div class="fact-card">
+                        <span class="icon">📱</span>
+                        <div class="number">4.8</div>
+                        <div class="label">Рейтинг в App Store</div>
+                    </div>
+                    <div class="fact-card">
+                        <span class="icon">⚡</span>
+                        <div class="number">30+</div>
+                        <div class="label">Видов спорта</div>
+                    </div>
+                    <div class="fact-card">
+                        <span class="icon">💰</span>
+                        <div class="number">5M</div>
+                        <div class="label">Макс. выигрыш</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+    ИГРЫ
+    ============================ -->
+    <section class="section" id="games">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Популярные игры</h2>
+                <p class="section-subtitle">
+                    Выбери свою игру и начни выигрывать прямо сейчас
+                </p>
+            </div>
+
+            <div class="games-grid">
+                <!-- 1 -->
+                <div class="game-card reveal" style="transition-delay:0.05s;">
+                    <span class="emoji">✈️</span>
+                    <div class="name">Aviator</div>
+                    <div class="tag">Самый популярный</div>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="play-btn">Играть</a>
+                </div>
+                <!-- 2 -->
+                <div class="game-card reveal" style="transition-delay:0.1s;">
+                    <span class="emoji">🚀</span>
+                    <div class="name">Lucky Jet</div>
+                    <div class="tag">Космические ставки</div>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="play-btn">Играть</a>
+                </div>
+                <!-- 3 -->
+                <div class="game-card reveal" style="transition-delay:0.15s;">
+                    <span class="emoji">🍬</span>
+                    <div class="name">Sweet Bonanza</div>
+                    <div class="tag">Сладкий выигрыш</div>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="play-btn">Играть</a>
+                </div>
+                <!-- 4 -->
+                <div class="game-card reveal" style="transition-delay:0.2s;">
+                    <span class="emoji">⚡</span>
+                    <div class="name">Gates of Olympus</div>
+                    <div class="tag">Боги на твоей стороне</div>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="play-btn">Играть</a>
+                </div>
+                <!-- 5 -->
+                <div class="game-card reveal" style="transition-delay:0.25s;">
+                    <span class="emoji">📖</span>
+                    <div class="name">Book of Dead</div>
+                    <div class="tag">Египетские приключения</div>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="play-btn">Играть</a>
+                </div>
+                <!-- 6 -->
+                <div class="game-card reveal" style="transition-delay:0.3s;">
+                    <span class="emoji">✨</span>
+                    <div class="name">Starburst</div>
+                    <div class="tag">Космические слоты</div>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="play-btn">Играть</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+    ПРЕИМУЩЕСТВА
+    ============================ -->
+    <section class="section" id="features">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Наши преимущества</h2>
+                <p class="section-subtitle">
+                    Всё для комфортной игры и больших выигрышей
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item reveal" style="transition-delay:0.05s;">
+                    <span class="icon">📊</span>
+                    <h4>Широкая линия</h4>
+                    <p>Более 30 видов спорта и тысячи событий ежедневно</p>
+                </div>
+                <div class="feature-item reveal" style="transition-delay:0.1s;">
+                    <span class="icon">📈</span>
+                    <h4>Высокие коэффициенты</h4>
+                    <p>Маржа от 2,5% на топ-матчи — выгоднее, чем у конкурентов</p>
+                </div>
+                <div class="feature-item reveal" style="transition-delay:0.15s;">
+                    <span class="icon">💳</span>
+                    <h4>Быстрые выплаты</h4>
+                    <p>Деньги поступают на счёт без задержек — проверено временем</p>
+                </div>
+                <div class="feature-item reveal" style="transition-delay:0.2s;">
+                    <span class="icon">🎯</span>
+                    <h4>Ставки от 10 ₽</h4>
+                    <p>Минимальный порог входа — доступно каждому</p>
+                </div>
+                <div class="feature-item reveal" style="transition-delay:0.25s;">
+                    <span class="icon">📱</span>
+                    <h4>Мобильное приложение</h4>
+                    <p>Играй с телефона на iOS, Android или ПК</p>
+                </div>
+                <div class="feature-item reveal" style="transition-delay:0.3s;">
+                    <span class="icon">🛡️</span>
+                    <h4>Надёжность и лицензия</h4>
+                    <p>Официальная лицензия ФНС РФ и работа через ЦУПИС</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+    ИНСТРУКЦИЯ
+    ============================ -->
+    <section class="section" id="steps">
+        <div class="container">
+            <div class="reveal">
+                <h2 class="section-title">Как начать?</h2>
+                <p class="section-subtitle">
+                    Всего 4 шага — и ты в игре
+                </p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-item reveal" style="transition-delay:0.05s;">
+                    <div class="step-num">1</div>
+                    <h4>Регистрация</h4>
+                    <p>Заполни анкету за 2 минуты</p>
+                </div>
+                <div class="step-item reveal" style="transition-delay:0.1s;">
+                    <div class="step-num">2</div>
+                    <h4>Пополнение</h4>
+                    <p>Внеси депозит любым способом</p>
+                </div>
+                <div class="step-item reveal" style="transition-delay:0.15s;">
+                    <div class="step-num">3</div>
+                    <h4>Выбор игры</h4>
+                    <p>Найди событие по душе</p>
+                </div>
+                <div class="step-item reveal" style="transition-delay:0.2s;">
+                    <div class="step-num">4</div>
+                    <h4>Выигрыш</h4>
+                    <p>Получай деньги моментально</p>
+                </div>
+            </div>
+
+            <div style="text-align:center; margin-top: 30px;">
+                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-reg" style="padding: 14px 40px; font-size:18px; font-weight:700;">
+                    🚀 Зарегистрироваться
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================
+    ФУТЕР
+    ============================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Информация</h4>
+                    <a href="#about">О компании</a>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Лицензия</a>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Ответственная игра</a>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Акции и бонусы</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Поддержка</h4>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Партнёрская программа</a>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Способы оплаты</a>
+                    <a href="mailto:support@1win.social">support@1win.social</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="mailto:support@1win.social">support@1win.social</a>
+                    <a href="tel:+74950888899">+7 495 088 88 99</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Скачать</h4>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">iOS App</a>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Android App</a>
+                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Windows</a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>
+                    © 2026 1win. Все права защищены.<br />
+                    1win управляется компанией Carletta N.V., зарегистрированной по адресу
+                    Heelsumstraat 51, Willemstad, Curaçao, с регистрационным номером 141626.<br />
+                    Деятельность осуществляется на основании лицензии Curacao eGaming № 8048/JAZ2017-003,
+                    выданной правительством Кюрасао.
+                </p>
+                <p style="margin-top: 8px;">
+                    <span class="age">18+</span> — Играй ответственно.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================
+    КНОПКА "НАВЕРХ"
+    ============================ -->
+    <button class="scroll-top" id="scrollTop" aria-label="Наверх">
+        ↑
+    </button>
+
+    <!-- ============================
+    СКРИПТЫ
+    ============================ -->
+    <script>
+        // ============================
+        // 1. БУРГЕР-МЕНЮ
+        // ============================
+        const burgerBtn = document.getElementById('burgerBtn');
+        const burgerMenu = document.getElementById('burgerMenu');
+        const burgerClose = document.getElementById('burgerClose');
+        const overlay = document.getElementById('overlay');
+
+        function toggleMenu() {
+            burgerBtn.classList.toggle('active');
+            burgerMenu.classList.toggle('open');
+            overlay.classList.toggle('active');
+            document.body.style.overflow = burgerMenu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        burgerBtn.addEventListener('click', toggleMenu);
+        burgerClose.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        // Закрытие меню при клике на ссылку
+        document.querySelectorAll('.burger-menu__link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (burgerMenu.classList.contains('open')) toggleMenu();
+            });
+        });
+
+        // ============================
+        // 2. АКТИВНАЯ ССЫЛКА В БУРГЕРЕ (при скролле)
+        // ============================
+        const sections = document.querySelectorAll('[id]');
+        const burgerLinks = document.querySelectorAll('.burger-menu__link[data-section]');
+
+        function updateActiveLink() {
+            let current = '';
+            sections.forEach(section => {
+                const top = section.offsetTop - 120;
+                if (window.scrollY >= top) {
+                    current = section.id;
+                }
+            });
+
+            burgerLinks.forEach(link => {
+                link.classList.toggle('active', link.dataset.section === current);
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveLink);
+
+        // ============================
+        // 3. АНИМАЦИИ ПРИ СКРОЛЛЕ (REVEAL)
+        // ============================
+        function revealOnScroll() {
+            const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const revealPoint = 100;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealOnScroll);
+        window.addEventListener('load', revealOnScroll);
+
+        // ============================
+        // 4. КНОПКА "НАВЕРХ"
+        // ============================
+        const scrollTopBtn = document.getElementById('scrollTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // ============================
+        // 5. ИЗМЕНЕНИЕ ШАПКИ ПРИ СКРОЛЛЕ
+        // ============================
+        const header = document.getElementById('header');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        console.log('🚀 1Win сайт загружен!');
+        console.log('💡 Реферальная ссылка: https://one-vv7878.com/?p=1sjz');
+    </script>
+
+</body>
+</html>
