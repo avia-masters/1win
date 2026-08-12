@@ -1,360 +1,1555 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1Win — Ставки на спорт и казино</title>
-    <meta name="description" content="1Win — официальный букмекер. Ставки на спорт, киберспорт и казино. Бонус до 500% на первый депозит." />
-    <link rel="icon" type="image/svg+xml" href="svg/logo.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="css/style.css" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    
+    <!-- Фавикон -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=111504445', 'ym');
+
+        ym(111504445, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/111504445" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <title>1WIN КАЗИНО — официальный сайт для СНГ</title>
+    <meta name="description" content="Официальный сайт 1WIN КАЗИНО для СНГ: вход, регистрация, бонусы, слоты, провайдеры, приложение, платежи, отзывы и правила.">
+    <meta name="theme-color" content="#0a1628">
+    <link rel="canonical" href="https://ваш-сайт.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="1WIN КАЗИНО — официальный сайт для СНГ">
+    <meta property="og:description" content="Официальный сайт 1WIN КАЗИНО для СНГ: вход, регистрация, бонусы, слоты, провайдеры, приложение, платежи, отзывы и правила.">
+    <meta property="og:url" content="https://ваш-сайт.com/">
+    <meta property="og:image" content="https://ваш-сайт.com/assets/img/og-cover.webp">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* ===== БАЗА ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(160deg, #0a1628 0%, #0f2040 50%, #0a1628 100%);
+            color: #d0e4f8;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        a {
+            color: #4ab8ff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            color: #7acbff;
+            text-shadow: 0 0 25px rgba(74, 184, 255, 0.2);
+        }
+
+        /* ===== СКИП-ССЫЛКА ===== */
+        .skip {
+            position: absolute;
+            top: -100px;
+            left: 10px;
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 0 0 8px 8px;
+            z-index: 1000;
+            font-weight: 700;
+        }
+        .skip:focus { top: 0; }
+
+        /* ===== ШАПКА ===== */
+        .site-header {
+            background: rgba(10, 22, 40, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(26, 48, 80, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 22px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+        .brand img { height: 44px; width: auto; display: block; }
+
+        .menu-button {
+            display: none;
+            background: none;
+            border: 1px solid #1a3050;
+            color: #d0e4f8;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 10px 20px;
+            flex-wrap: wrap;
+        }
+        .main-nav a {
+            color: #8aaac8;
+            font-weight: 500;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+        .main-nav a:hover {
+            color: #4ab8ff;
+            text-shadow: 0 0 20px rgba(74, 184, 255, 0.15);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .age-badge {
+            background: #1a3050;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            color: #4ab8ff;
+            font-size: 13px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .btn.primary {
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            color: #ffffff;
+            box-shadow: 0 4px 25px rgba(26, 124, 204, 0.3);
+        }
+        .btn.primary:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.35);
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: #8aaac8;
+            border: 1px solid #1a3050;
+        }
+        .btn.ghost:hover {
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+            box-shadow: 0 0 30px rgba(74, 184, 255, 0.05);
+        }
+
+        .btn.large {
+            padding: 14px 40px;
+            font-size: 18px;
+        }
+
+        /* ===== ГЕРОЙ ===== */
+        .page-hero {
+            padding: 50px 0 60px;
+            background: linear-gradient(145deg, rgba(10, 22, 40, 0.8), rgba(15, 32, 64, 0.6));
+            border-radius: 0 0 40px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(26, 122, 204, 0.06), transparent 70%);
+            pointer-events: none;
+        }
+        .page-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(74, 184, 255, 0.04), transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            background: rgba(26, 48, 80, 0.5);
+            backdrop-filter: blur(4px);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #4ab8ff;
+            margin-bottom: 12px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-hero h1 {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: #ffffff;
+        }
+
+        .page-hero p {
+            font-size: 18px;
+            color: #8aaac8;
+            max-width: 600px;
+            margin-bottom: 24px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .stats-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: rgba(10, 22, 40, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 20px;
+            padding: 30px 24px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+        }
+        .stats-card div {
+            text-align: center;
+        }
+        .stats-card strong {
+            display: block;
+            font-size: 32px;
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stats-card span {
+            color: #8aaac8;
+            font-size: 14px;
+        }
+
+        /* ===== БЛОК ДОВЕРИЯ ===== */
+        .section { padding: 50px 0; }
+        .section.soft { 
+            background: rgba(10, 22, 40, 0.4);
+            backdrop-filter: blur(4px);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-bottom: 20px;
+        }
+
+        .trust-card {
+            background: rgba(17, 29, 53, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 16px;
+            padding: 24px;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .trust-card:hover {
+            border-color: #4ab8ff;
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
+            transform: translateY(-2px);
+        }
+        .trust-card .trust-icon {
+            display: inline-block;
+            background: rgba(26, 48, 80, 0.5);
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #4ab8ff;
+            margin-bottom: 10px;
+        }
+        .trust-card strong {
+            display: block;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 6px;
+        }
+        .trust-card span {
+            color: #8aaac8;
+            font-size: 14px;
+        }
+
+        .security-status {
+            font-size: 14px;
+            color: #5a7a9a;
+            padding: 16px 0;
+            border-top: 1px solid rgba(26, 48, 80, 0.4);
+            border-bottom: 1px solid rgba(26, 48, 80, 0.4);
+            margin-bottom: 30px;
+        }
+        .security-status a { color: #4ab8ff; }
+        .security-status a:hover { color: #7acbff; }
+
+        .overview-nav {
+            background: rgba(17, 29, 53, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .overview-nav h2 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .overview-nav p {
+            color: #8aaac8;
+            margin-bottom: 16px;
+        }
+        .overview-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+        }
+        .overview-links a {
+            font-size: 14px;
+            color: #8aaac8;
+            background: rgba(10, 22, 40, 0.4);
+            padding: 4px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(26, 48, 80, 0.3);
+            transition: 0.3s;
+        }
+        .overview-links a:hover {
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+            box-shadow: 0 0 30px rgba(74, 184, 255, 0.05);
+        }
+
+        /* ===== СЕКЦИЯ ДЕЙСТВИЙ ===== */
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+        .section-head .eyebrow { margin-bottom: 4px; }
+        .section-head h2 {
+            font-size: 30px;
+            color: #ffffff;
+        }
+        .section-head a { color: #4ab8ff; }
+        .section-head a:hover { color: #7acbff; }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .feature-grid a {
+            background: rgba(17, 29, 53, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 16px;
+            padding: 24px;
+            transition: 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .feature-grid a:hover {
+            border-color: #4ab8ff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
+        }
+        .feature-grid a strong {
+            display: block;
+            color: #ffffff;
+            font-size: 18px;
+        }
+        .feature-grid a span {
+            color: #8aaac8;
+            font-size: 14px;
+        }
+
+        /* ===== КОНТЕНТ ===== */
+        .home-overview {
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        .prose h2 {
+            font-size: 26px;
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 40px 0 12px;
+            padding-top: 10px;
+        }
+        .prose h2:first-child { margin-top: 0; }
+        .prose p {
+            color: #d0e4f8;
+            margin-bottom: 16px;
+        }
+        .prose a { color: #4ab8ff; }
+        .prose a:hover { color: #7acbff; }
+
+        .table-wrap {
+            overflow-x: auto;
+            margin: 16px 0 24px;
+        }
+        .table-wrap table {
+            width: 100%;
+            background: rgba(17, 29, 53, 0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 12px;
+            border-collapse: collapse;
+            font-size: 15px;
+            border: 1px solid rgba(26, 48, 80, 0.4);
+        }
+        .table-wrap th {
+            background: rgba(26, 48, 80, 0.4);
+            color: #4ab8ff;
+            padding: 14px 18px;
+            text-align: left;
+            font-weight: 600;
+        }
+        .table-wrap td {
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(26, 48, 80, 0.3);
+            color: #d0e4f8;
+        }
+        .table-wrap tr:last-child td { border-bottom: none; }
+
+        .fact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 16px 0 24px;
+        }
+        .fact-list div {
+            background: rgba(17, 29, 53, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 12px;
+            padding: 16px 20px;
+        }
+        .fact-list div strong {
+            display: block;
+            color: #4ab8ff;
+            font-size: 15px;
+        }
+        .fact-list div span {
+            color: #8aaac8;
+            font-size: 14px;
+        }
+
+        .faq details {
+            background: rgba(17, 29, 53, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 12px;
+            padding: 16px 20px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        .faq details:hover { border-color: #4ab8ff; }
+        .faq summary {
+            font-weight: 600;
+            color: #ffffff;
+            cursor: pointer;
+            font-size: 17px;
+        }
+        .faq summary:hover { color: #4ab8ff; }
+        .faq details p {
+            color: #d0e4f8;
+            padding-top: 12px;
+            margin: 0;
+        }
+
+        /* ===== КАРТОЧКИ ИГР ===== */
+        .card-grid {
+            display: grid;
+            gap: 24px;
+        }
+        .card-grid-slots {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .content-card {
+            background: rgba(17, 29, 53, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .content-card:hover {
+            border-color: #4ab8ff;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
+        }
+        .content-card a { display: block; text-decoration: none; color: inherit; }
+        .card-media img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+            background: #0f2040;
+        }
+        .card-copy { padding: 16px 20px 20px; }
+        .card-copy span {
+            font-size: 13px;
+            color: #8aaac8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-copy h2 {
+            font-size: 18px;
+            color: #ffffff;
+            margin: 4px 0 8px;
+        }
+        .card-copy p {
+            color: #d0e4f8;
+            font-size: 14px;
+        }
+        .card-meta {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+            font-size: 13px;
+            color: #5a7a9a;
+        }
+
+        /* ===== ЛОГОТИПЫ ПРОВАЙДЕРОВ ===== */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 16px;
+        }
+        .logo-grid a {
+            background: rgba(17, 29, 53, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 12px;
+            padding: 16px 12px;
+            text-align: center;
+            transition: 0.3s;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .logo-grid a:hover {
+            border-color: #4ab8ff;
+            transform: scale(1.04);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
+        }
+        .logo-grid strong {
+            font-size: 13px;
+            color: #d0e4f8;
+            display: block;
+        }
+
+        /* ===== ОТЗЫВЫ ===== */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .split h2 {
+            font-size: 36px;
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .review-preview {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .review-preview article {
+            background: rgba(17, 29, 53, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 12px;
+            padding: 18px 22px;
+            transition: 0.3s;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .review-preview article:hover { border-color: #4ab8ff; }
+        .review-preview article strong { color: #4ab8ff; }
+        .review-preview article p {
+            color: #d0e4f8;
+            margin-top: 6px;
+        }
+
+        /* ===== ПРИЗЫВ ===== */
+        .footer-cta {
+            background: linear-gradient(145deg, rgba(10, 22, 40, 0.8), rgba(15, 32, 64, 0.6));
+            border-top: 1px solid rgba(26, 48, 80, 0.3);
+            border-bottom: 1px solid rgba(26, 48, 80, 0.3);
+            padding: 50px 0;
+        }
+        .footer-cta .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        .footer-cta h2 {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        .footer-cta p {
+            color: #8aaac8;
+            max-width: 500px;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .site-footer {
+            background: rgba(10, 22, 40, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 40px 0 20px;
+            border-top: 1px solid rgba(26, 48, 80, 0.3);
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        .footer-brand p {
+            color: #8aaac8;
+            font-size: 14px;
+            margin: 12px 0;
+        }
+        .footer-trust {
+            display: flex;
+            gap: 12px;
+        }
+        .footer-trust span {
+            background: rgba(26, 48, 80, 0.4);
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #8aaac8;
+        }
+        .footer-grid strong {
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .footer-grid a {
+            display: block;
+            color: #8aaac8;
+            font-size: 14px;
+            padding: 3px 0;
+            transition: 0.3s;
+        }
+        .footer-grid a:hover { color: #4ab8ff; }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(26, 48, 80, 0.3);
+            padding-top: 20px;
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            font-size: 14px;
+            color: #5a7a9a;
+        }
+
+        /* ===== МОБИЛЬНАЯ ПАНЕЛЬ ===== */
+        .mobile-bar {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(26, 48, 80, 0.4);
+            padding: 10px;
+            gap: 10px;
+            z-index: 200;
+        }
+        .mobile-bar a {
+            flex: 1;
+            text-align: center;
+            padding: 10px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        .mobile-bar a:first-child {
+            background: transparent;
+            border: 1px solid #1a3050;
+            color: #8aaac8;
+        }
+        .mobile-bar a:last-child {
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            color: #ffffff;
+        }
+
+        /* ===== ТОК-КАРТА ===== */
+        .toc-card {
+            background: rgba(17, 29, 53, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 16px;
+            padding: 24px;
+            position: sticky;
+            top: 90px;
+            align-self: start;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        .toc-card strong {
+            display: block;
+            background: linear-gradient(135deg, #1a7acc, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+        .toc-card a {
+            display: block;
+            color: #8aaac8;
+            padding: 6px 0;
+            font-size: 14px;
+            border-bottom: 1px solid rgba(26, 48, 80, 0.3);
+            transition: 0.3s;
+        }
+        .toc-card a:hover { color: #4ab8ff; }
+        .toc-card .btn { margin-top: 16px; width: 100%; }
+
+        /* ===== AGE GATE ===== */
+        .age-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 22, 40, 0.97);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .age-gate[hidden] { display: none; }
+
+        .age-gate-card {
+            background: rgba(17, 29, 53, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(26, 48, 80, 0.4);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 480px;
+            text-align: center;
+            box-shadow: 0 12px 60px rgba(0, 0, 0, 0.4);
+        }
+        .age-gate-mark {
+            display: inline-block;
+            background: rgba(26, 48, 80, 0.5);
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-size: 24px;
+            font-weight: 800;
+            color: #4ab8ff;
+        }
+        .age-gate-card h2 {
+            color: #ffffff;
+            font-size: 26px;
+            margin: 16px 0 8px;
+        }
+        .age-gate-card p {
+            color: #8aaac8;
+            margin-bottom: 24px;
+        }
+        .age-gate-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .age-gate-card a {
+            display: block;
+            margin-top: 16px;
+            color: #5a7a9a;
+            font-size: 14px;
+        }
+
+        /* ===== АДАПТИВ ===== */
+        @media (max-width: 992px) {
+            .hero-grid { grid-template-columns: 1fr; }
+            .home-overview { grid-template-columns: 1fr; }
+            .toc-card { position: static; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .split { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-button { display: block; }
+            .main-nav {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 16px 0;
+                gap: 8px;
+            }
+            .main-nav.open { display: flex; }
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+                padding-top: 12px;
+                border-top: 1px solid rgba(26, 48, 80, 0.3);
+            }
+            .page-hero h1 { font-size: 30px; }
+            .stats-card { grid-template-columns: 1fr 1fr; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-cta .container { flex-direction: column; text-align: center; }
+            .mobile-bar { display: flex; }
+            .site-footer { padding-bottom: 80px; }
+            .overview-links a { font-size: 12px; padding: 3px 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .page-hero h1 { font-size: 24px; }
+            .btn.large { padding: 12px 24px; font-size: 16px; }
+            .hero-buttons { flex-direction: column; }
+            .age-gate-card { padding: 24px; margin: 16px; }
+        }
+
+        [hidden] { display: none !important; }
+    </style>
 </head>
 <body>
 
-    <!-- ====== ШАПКА ====== -->
-    <header class="header" id="header">
-        <div class="container header-container">
-            <a href="#hero" class="logo">
-                <img src="svg/logo.svg" alt="1Win" class="logo-img" />
+    <!-- ===== СКИП-ССЫЛКА ===== -->
+    <a class="skip" href="#content">К содержанию</a>
+
+    <!-- ===== AGE GATE ===== -->
+    <div class="age-gate" data-age-gate role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+        <div class="age-gate-card">
+            <span class="age-gate-mark">18+</span>
+            <p class="eyebrow">Подтверждение возраста</p>
+            <h2 id="age-gate-title">Вам уже исполнилось 18 лет?</h2>
+            <p>Сайт содержит информацию об азартных играх и предназначен только для совершеннолетних. Азартная игра не является способом заработка.</p>
+            <div class="age-gate-actions">
+                <button type="button" class="btn primary large" data-age-accept>Да, мне есть 18</button>
+                <button type="button" class="btn ghost large" data-age-reject>Мне нет 18</button>
+            </div>
+            <a href="rules.html">Ответственная игра и ограничения</a>
+        </div>
+    </div>
+
+    <!-- ===== ШАПКА ===== -->
+    <header class="site-header">
+        <div class="container header-row">
+            <a class="brand" href="index.html">
+                <!-- Замените src на путь к вашему логотипу 1win -->
+                <img src="1win-logo.png" alt="1WIN КАЗИНО" loading="lazy">
+                <span>1WIN КАЗИНО</span>
             </a>
-
-            <nav class="nav" id="nav">
-                <a href="#about" class="nav-link">О нас</a>
-                <a href="#games" class="nav-link">Игры</a>
-                <a href="#features" class="nav-link">Преимущества</a>
-                <a href="#steps" class="nav-link">Как начать</a>
-                <a href="#contacts" class="nav-link">Контакты</a>
+            <button class="menu-button" type="button" data-menu aria-label="Открыть меню">
+                <i class="fas fa-bars"></i> Меню
+            </button>
+            <nav class="main-nav" data-nav>
+                <a href="index.html">Главная</a>
+                <a href="games.html">Игры</a>
+                <a href="bonus.html">Бонусы</a>
+                <a href="providers.html">Провайдеры</a>
+                <a href="app.html">Приложение</a>
+                <a href="reviews.html">Отзывы</a>
+                <a href="contacts.html">Контакты</a>
+                <a href="rules.html">Правила</a>
             </nav>
-
             <div class="header-actions">
-                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-ghost btn-sm">Вход</a>
-                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Регистрация</a>
-                <button class="burger" id="burger" aria-label="Меню">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+                <span class="age-badge">18+</span>
+                <a class="btn ghost" href="login.html">Войти</a>
+                <a class="btn primary" href="https://1win.promo/" rel="nofollow sponsored">Регистрация</a>
             </div>
         </div>
-
-        <!-- Мобильное меню -->
-        <div class="mobile-menu" id="mobileMenu">
-            <div class="mobile-menu-inner">
-                <button class="mobile-close" id="mobileClose">✕</button>
-                <a href="#about" class="mobile-link">О нас</a>
-                <a href="#games" class="mobile-link">Игры</a>
-                <a href="#features" class="mobile-link">Преимущества</a>
-                <a href="#steps" class="mobile-link">Как начать</a>
-                <a href="#contacts" class="mobile-link">Контакты</a>
-                <div class="mobile-actions">
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-ghost">Вход</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary">Регистрация</a>
-                </div>
-            </div>
-        </div>
-        <div class="overlay" id="overlay"></div>
     </header>
 
-    <!-- ====== 3D-КОНТЕЙНЕР ====== -->
-    <div id="three-container"></div>
+    <!-- ===== ОСНОВНОЕ СОДЕРЖАНИЕ ===== -->
+    <main id="content">
 
-    <!-- ====== HERO ====== -->
-    <section class="hero" id="hero">
-        <div class="container hero-content">
-            <span class="badge">🏆 Официальный букмекер</span>
-            <h1 class="hero-title">
-                Космос твоих<br />
-                <span class="gradient">побед</span>
-            </h1>
-            <p class="hero-desc">
-                Ставки на спорт, киберспорт и казино в одной платформе.
-            </p>
-            <div class="bonus-badge">🎁 +500% на первый депозит</div>
-            <div class="hero-buttons">
-                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-lg">
-                    Начать выигрывать
-                </a>
-                <a href="#about" class="btn btn-ghost btn-lg">
-                    Узнать больше
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== О НАС ====== -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">О компании</span>
-                <h2 class="section-title">Почему 1Win?</h2>
-                <p class="section-desc">
-                    Надёжность, проверенная годами. Миллионы игроков выбирают нас.
-                </p>
-            </div>
-
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        <strong>1Win</strong> — одна из ведущих букмекерских компаний России,
-                        работающая с <strong>2003 года</strong>. Мы создали платформу,
-                        где каждый игрок чувствует себя уверенно.
-                    </p>
-                    <p>
-                        Наша деятельность лицензирована <strong>ФНС РФ № 5</strong>,
-                        а все расчёты проходят через <strong>Первый ЦУПИС</strong> —
-                        гарантия честности и безопасности ваших средств.
-                    </p>
-                    <p>
-                        Мы предлагаем ставки на <strong>30+ видов спорта</strong>,
-                        киберспорт и обширную коллекцию игровых автоматов.
-                    </p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <span class="stat-number">2003</span>
-                        <span class="stat-label">Год основания</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">30+</span>
-                        <span class="stat-label">Видов спорта</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">5M</span>
-                        <span class="stat-label">Макс. выигрыш, ₽</span>
-                    </div>
-                    <div class="stat-card">
-                        <span class="stat-number">4.8</span>
-                        <span class="stat-label">Рейтинг в App Store</span>
+        <!-- ===== ГЕРОЙ ===== -->
+        <section class="page-hero">
+            <div class="container hero-grid">
+                <div>
+                    <span class="eyebrow">Официальный сайт</span>
+                    <h1><span class="gradient-text">1WIN КАЗИНО</span> — лучший выбор для СНГ</h1>
+                    <p>Обзор официального проекта 1WIN КАЗИНО на русском языке: вход и регистрация, игры, бонусы, мультивалютные платежи, мобильный доступ, отзывы и правила безопасности.</p>
+                    <div class="hero-buttons">
+                        <a class="btn primary large" href="https://1win.promo/" rel="nofollow sponsored">Начать игру</a>
+                        <a class="btn ghost large" href="rules.html">Изучить правила</a>
                     </div>
                 </div>
+                <aside class="stats-card">
+                    <div><strong>15 000+</strong><span>игр</span></div>
+                    <div><strong>15+</strong><span>провайдеров</span></div>
+                    <div><strong>6</strong><span>валют</span></div>
+                    <div><strong>500%</strong><span>бонус</span></div>
+                </aside>
             </div>
+        </section>
+
+        <!-- ===== БЛОК ДОВЕРИЯ ===== -->
+        <section class="section">
+            <div class="container">
+                <div class="trust-grid">
+                    <article class="trust-card">
+                        <span class="trust-icon">TLS</span>
+                        <strong>Шифрованное соединение</strong>
+                        <span>HTTPS защищает передачу данных между браузером и сервером. Проверяйте домен и сертификат.</span>
+                    </article>
+                    <article class="trust-card">
+                        <span class="trust-icon">CSP</span>
+                        <strong>Защитные заголовки</strong>
+                        <span>CSP, HSTS, SAMEORIGIN, nosniff и ограничение разрешений снижают риск подмены контента.</span>
+                    </article>
+                    <article class="trust-card">
+                        <span class="trust-icon">✓</span>
+                        <strong>Проверка материалов</strong>
+                        <span>У каждой важной страницы есть дата обновления, источники, методология и канал для исправлений.</span>
+                    </article>
+                    <article class="trust-card">
+                        <span class="trust-icon">18+</span>
+                        <strong>Ответственная игра</strong>
+                        <span>Возрастное подтверждение, правила лимитов и отдельный раздел помощи при потере контроля.</span>
+                    </article>
+                </div>
+                <div class="security-status">
+                    Последняя успешная автоматическая проверка HTTPS и доступности: 31 июля 2026 года ·
+                    <a href="rules.html#security">как защищён сайт</a> ·
+                    <a href="rules.html#methodology">методология проверки</a> ·
+                    <a href="rules.html#editorial">редакционная политика</a> ·
+                    <a href="rules.html#regulation">регулирование</a>
+                </div>
+                <div class="overview-nav">
+                    <h2>Содержание обзора 1WIN КАЗИНО</h2>
+                    <p>Быстрые ссылки ведут к ключевым разделам проекта.</p>
+                    <div class="overview-links">
+                        <a href="index.html#official">🌐 Официальный сайт</a>
+                        <a href="index.html#summary">📋 Краткая таблица проекта</a>
+                        <a href="login.html">🔐 Вход</a>
+                        <a href="index.html#address">🪞 Актуальный адрес</a>
+                        <a href="games.html">🎰 Слоты</a>
+                        <a href="providers.html">🏢 Провайдеры</a>
+                        <a href="reviews.html">🔎 Отзывы</a>
+                        <a href="index.html#demo">🧪 Бесплатный режим</a>
+                        <a href="bonus.html">🎁 Бонус</a>
+                        <a href="app.html">📱 APK, iOS и PWA</a>
+                        <a href="index.html#payments">💳 Пополнение и вывод</a>
+                        <a href="index.html#queries">🔎 Варианты написания</a>
+                        <a href="comparison.html">⚖️ Сравнение</a>
+                        <a href="comparison.html">🎛 Интерактивное сравнение</a>
+                        <a href="index.html#home-faq">❓ FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ОСНОВНЫЕ ДЕЙСТВИЯ ===== -->
+        <section class="section soft">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Навигация</span>
+                        <h2>Основные действия</h2>
+                    </div>
+                </div>
+                <div class="feature-grid">
+                    <a href="https://1win.promo/" rel="nofollow sponsored">
+                        <strong>Регистрация</strong>
+                        <span>Порядок создания аккаунта, проверка контактов и защита пароля.</span>
+                    </a>
+                    <a href="bonus.html">
+                        <strong>Бонусы</strong>
+                        <span>Вейджер, срок, максимальная ставка и ограничения.</span>
+                    </a>
+                    <a href="index.html#payments">
+                        <strong>Платежи</strong>
+                        <span>Валюты СНГ, конвертация, комиссия и идентификатор операции.</span>
+                    </a>
+                    <a href="app.html">
+                        <strong>Приложение</strong>
+                        <span>Android, APK, iOS, PWA и безопасная установка.</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ОСНОВНОЙ КОНТЕНТ ===== -->
+        <section class="section">
+            <div class="container home-overview">
+                <article class="prose">
+
+                    <h2 id="official"><span class="gradient-text">1WIN КАЗИНО</span> — официальный сайт</h2>
+                    <p>1WIN КАЗИНО — игровой проект для пользователей стран СНГ. На сайте собраны инструкции по входу и регистрации, каталог игр, страницы провайдеров, условия бонусов, платежные материалы, отзывы и юридические документы. Платформа работает по лицензии Кюрасао (Curacao OGL/2024/772/0903) и предлагает широкий выбор игр от ведущих мировых провайдеров [citation:1][citation:13].</p>
+                    <p>Переход к регистрации выполняется только через кнопки сайта. Перед вводом данных проверяйте защищённое соединение и не используйте ссылки из комментариев, личных сообщений или копий страниц. Для восстановления доступа и вопросов опубликованы Telegram на странице <a href="contacts.html">контактов</a>.</p>
+
+                    <h2 id="summary">Краткая таблица проекта</h2>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Параметр</th><th>Данные</th><th>Что проверить</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Бренд</td><td>1WIN КАЗИНО</td><td>Одинаковое написание в домене, заголовке и контактах</td></tr>
+                                <tr><td>Год запуска</td><td>2016</td><td>Платформа работает с 2016 года [citation:6]</td></tr>
+                                <tr><td>Лицензия</td><td>Curacao OGL/2024/772/0903</td><td>Юридические реквизиты в правилах [citation:1]</td></tr>
+                                <tr><td>Доступ</td><td>Официальный адрес проекта</td><td>HTTPS и действующий сертификат</td></tr>
+                                <tr><td>Регистрация</td><td>Через основную кнопку перехода</td><td>Адрес перехода до ввода данных</td></tr>
+                                <tr><td>Регион</td><td>Страны СНГ</td><td>Доступность по текущему местоположению</td></tr>
+                                <tr><td>Валюты</td><td>RUB, KZT, UZS, USD, EUR, USDT</td><td>Список в кассе конкретного аккаунта [citation:1]</td></tr>
+                                <tr><td>Возраст</td><td>18+</td><td>Местные ограничения и подтверждение личности</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="login">Вход в 1WIN КАЗИНО</h2>
+                    <p>Для авторизации открывайте страницу <a href="login.html">входа</a> с официального домена. Не повторяйте пароль от почты, включайте доступные способы дополнительной защиты и никому не сообщайте одноразовые коды. Если код не приходит, сначала проверьте папку «Спам», формат номера и доступ к привязанному адресу.</p>
+                    <div class="fact-list">
+                        <div><strong>До входа</strong><span>Проверьте домен, HTTPS и отсутствие лишних слов в адресе.</span></div>
+                        <div><strong>После входа</strong><span>Проверьте историю сессий, валюту аккаунта и персональные лимиты.</span></div>
+                        <div><strong>При ошибке</strong><span>Не создавайте второй аккаунт — обратитесь в официальную поддержку.</span></div>
+                    </div>
+
+                    <h2 id="address">Актуальный адрес и защита от подмены</h2>
+                    <p>Страница актуального адреса объясняет, как проверить источник перед входом или регистрацией. Совпадение логотипа и дизайна само по себе не подтверждает официальный статус. В случае блокировки основного ресурса используйте официальные зеркала или мобильное приложение, которое позволяет обходить ограничения без VPN [citation:11][citation:14].</p>
+                    <p>Перед вводом пароля или открытием кассы сравните домен посимвольно, проверьте HTTPS и контакты. При предупреждении браузера о сертификате закройте страницу и сообщите об этом через официальный канал связи.</p>
+
+                    <h2 id="slots">Слоты 1WIN КАЗИНО</h2>
+                    <p>Каталог содержит более 15 000 игр, включая отдельные обзоры популярных слотов и быстрых игр [citation:1]. Страница каждой игры описывает провайдера, механику, формат, волатильность и параметры. Полный список игр смотрите в <a href="games.html">каталоге игр</a>. На платформе представлены слоты от ведущих студий: NetEnt, Microgaming, Play'n GO, Pragmatic Play, Evoplay и других [citation:8][citation:13].</p>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Тип игры</th><th>На что смотреть</th><th>Основной риск</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Классические слоты</td><td>Линии, RTP версии, волатильность</td><td>Длинные серии без бонуса</td></tr>
+                                <tr><td>Megaways и cluster pays</td><td>Меняющаяся сетка и правила комбинаций</td><td>Сложнее оценивать стоимость спина</td></tr>
+                                <tr><td>Crash-игры</td><td>Автовывод, лимит и история ставок</td><td>Высокий темп принятия решений</td></tr>
+                                <tr><td>Live-казино</td><td>Лимиты стола и задержка соединения</td><td>Ошибки при нестабильной сети</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="providers">Провайдеры игр</h2>
+                    <p>В разделе <a href="providers.html">провайдеров</a> собраны студии слотов, live-казино и быстрых игр. Среди ключевых партнеров 1WIN: Big Time Gaming, EvoPlay, Microgaming, Playtech, Pragmatic Play, Evolution, PG Soft, Hacksaw Gaming и другие [citation:1][citation:13]. Логотип помогает ориентироваться в каталоге, но версию игры нужно проверять по справке внутри клиента. Для каждого разработчика есть отдельная страница с фокусом студии и связанными обзорами.</p>
+
+                    <h2 id="reviews">Отзывы о 1WIN КАЗИНО</h2>
+                    <p>Отзывы публикуются с оценкой, датой и тематическими метками. Они отражают личный опыт авторов и не заменяют правила: скорость вывода, бонусы и доступные методы могут отличаться по стране, валюте, сумме и статусу проверки аккаунта. Пользователи отмечают как быстрые выплаты, так и случаи задержек при выводе средств [citation:15].</p>
+                    <p>На странице <a href="reviews.html">отзывов</a> работает пагинация, поэтому карточки не перегружают страницу. Для оценки проекта полезнее смотреть не на один эмоциональный комментарий, а на повторяющиеся темы: выплаты, верификацию, работу приложения, бонусные ограничения и качество поддержки.</p>
+
+                    <h2 id="demo">Играть бесплатно</h2>
+                    <p>Информационный сайт не встраивает игровые демо. Если бесплатный режим доступен внутри продукта, он помогает изучить интерфейс и механику без ставки реальных средств, но не прогнозирует результат игры на деньги. Наличие демо и набор функций зависят от конкретного провайдера и региона.</p>
+
+                    <h2 id="bonus">Бонусы и промокоды</h2>
+                    <p>1WIN предлагает щедрую бонусную программу. Новые игроки могут получить до 500% на первые четыре депозита (200% за первый депозит, 150% за второй, 100% за третий и 50% за четвертый) [citation:2][citation:7]. Максимальная сумма бонуса — до 200 000 рублей [citation:2]. Для активации бонуса используйте промокод <strong>1W500BIG</strong> при регистрации [citation:2].</p>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Параметр</th><th>Почему важен</th><th>Где смотреть</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Вейджер</td><td>Показывает требуемый оборот</td><td>Полные условия акции</td></tr>
+                                <tr><td>Максимальная ставка</td><td>Превышение может отменить бонусный прогресс</td><td>Ограничения ставок</td></tr>
+                                <tr><td>Срок</td><td>Неиспользованный бонус может сгореть</td><td>Дата активации и таймер</td></tr>
+                                <tr><td>Игры</td><td>Разный вклад в отыгрыш</td><td>Таблица исключений</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Для постоянных игроков действует программа лояльности, кэшбэк (до 30% еженедельно) и различные акции с промокодами [citation:7][citation:11].</p>
+
+                    <h2 id="app">APK, iOS и PWA</h2>
+                    <p>Страница <a href="app.html">приложения</a> разделяет Android, iOS и PWA. APK следует скачивать только по ссылке из официального интерфейса: проверьте домен загрузки, имя файла, разрешения и цифровую подпись. Для Android доступен прямой APK-файл, для iOS — WebApp версия, так как приложение не размещено в App Store из-за ограничений Apple на азартный контент [citation:4][citation:14].</p>
+
+                    <h2 id="payments">Пополнение и вывод средств</h2>
+                    <p>Мультивалютность удобна для СНГ, но требует внимательной проверки курса и комиссии. Доступны RUB, EUR, KZT, USD, USDT и другие валюты [citation:1]. Выбирайте валюту аккаунта до первого депозита, используйте собственный платёжный метод и сохраняйте идентификатор операции. При задержке не создавайте несколько одинаковых заявок.</p>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Этап</th><th>Контроль</th><th>Подтверждение</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Пополнение</td><td>Сумма, валюта, комиссия</td><td>Чек и ID операции</td></tr>
+                                <tr><td>Верификация</td><td>Совпадение имени и метода</td><td>Статус KYC</td></tr>
+                                <tr><td>Заявка на вывод</td><td>Лимит и выбранный метод</td><td>Номер заявки</td></tr>
+                                <tr><td>Получение</td><td>Фактическая сумма после конвертации</td><td>Выписка или запись кошелька</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="queries">Как пишется название</h2>
+                    <p>Названия <strong>1WIN КАЗИНО</strong>, <strong>1Win Casino</strong>, <strong>1Вин Казино</strong> относятся к одному проекту. В материалах используются распространённые варианты написания, чтобы нужную инструкцию было проще найти.</p>
+
+                    <h2 id="comparison">Сравнение характеристик</h2>
+                    <div class="table-wrap">
+                        <table>
+                            <thead>
+                                <tr><th>Критерий</th><th>Мобильный сайт</th><th>PWA / приложение</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Установка</td><td>Не требуется</td><td>Нужна установка или добавление на экран</td></tr>
+                                <tr><td>Обновление</td><td>Автоматически на сервере</td><td>Зависит от формата</td></tr>
+                                <tr><td>Проверка источника</td><td>Домен и HTTPS</td><td>Домен загрузки, подпись и разрешения</td></tr>
+                                <tr><td>Хранилище</td><td>Минимальное</td><td>Может занимать место на устройстве</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p>Подробное сравнение слотов доступно на <a href="comparison.html">отдельной странице</a>.</p>
+
+                    <h2 id="home-faq">Частые вопросы</h2>
+                    <div class="faq">
+                        <details>
+                            <summary>Как проверить официальный сайт?</summary>
+                            <p>Открывайте разделы через главное меню, проверяйте HTTPS, контакты и адрес перехода перед вводом данных. Не используйте ссылки из случайных сообщений.</p>
+                        </details>
+                        <details>
+                            <summary>Какие варианты названия относятся к бренду?</summary>
+                            <p>1WIN КАЗИНО, 1Win Casino, 1Вин Казино — всё это названия проекта.</p>
+                        </details>
+                        <details>
+                            <summary>Есть ли мультивалютность?</summary>
+                            <p>Сайт описывает RUB, KZT, UZS, USD, EUR, USDT. Фактическая доступность зависит от страны и аккаунта [citation:1].</p>
+                        </details>
+                        <details>
+                            <summary>Где проверить бонус?</summary>
+                            <p>На <a href="bonus.html">странице бонусов</a> показано, какие параметры сверять: минимальный депозит, вейджер, максимальную ставку, срок и список игр.</p>
+                        </details>
+                        <details>
+                            <summary>Защищено ли соединение?</summary>
+                            <p>На боевом домене используется HTTPS/TLS; сайт также отправляет CSP, HSTS, X-Frame-Options и другие защитные заголовки.</p>
+                        </details>
+                    </div>
+                </article>
+
+                <!-- ===== САЙДБАР ===== -->
+                <aside class="toc-card">
+                    <strong>Навигация по обзору</strong>
+                    <a href="index.html#official">Официальный сайт</a>
+                    <a href="index.html#summary">Таблица проекта</a>
+                    <a href="login.html">Вход</a>
+                    <a href="index.html#address">Актуальный адрес</a>
+                    <a href="games.html">Слоты</a>
+                    <a href="providers.html">Провайдеры</a>
+                    <a href="reviews.html">Отзывы</a>
+                    <a href="bonus.html">Бонус</a>
+                    <a href="app.html">Приложение</a>
+                    <a href="index.html#payments">Платежи</a>
+                    <a href="comparison.html">Сравнение</a>
+                    <a href="index.html#home-faq">FAQ</a>
+                    <a class="btn primary" href="https://1win.promo/" rel="nofollow sponsored">Регистрация</a>
+                </aside>
+            </div>
+        </section>
+
+        <!-- ===== ПОПУЛЯРНЫЕ ИГРЫ ===== -->
+        <section class="section soft" id="slots">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Каталог</span>
+                        <h2>Популярные игры</h2>
+                    </div>
+                    <a href="games.html">Все игры →</a>
+                </div>
+                <div class="card-grid card-grid-slots">
+                    <article class="content-card content-card-slots">
+                        <a href="games.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%3EGates of Olympus%3C/text%3E%3C/svg%3E" alt="Gates of Olympus" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Pragmatic Play</span>
+                                <h2>Gates of Olympus</h2>
+                                <p>Gates of Olympus — игра от Pragmatic Play. Основная механика: pay anywhere и множители.</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="content-card content-card-slots">
+                        <a href="games.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%3ESweet Bonanza%3C/text%3E%3C/svg%3E" alt="Sweet Bonanza" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Pragmatic Play</span>
+                                <h2>Sweet Bonanza</h2>
+                                <p>Sweet Bonanza — игра от Pragmatic Play. Основная механика: каскады и выплаты по символам.</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="content-card content-card-slots">
+                        <a href="games.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%3EBook of Dead%3C/text%3E%3C/svg%3E" alt="Book of Dead" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Play'n GO</span>
+                                <h2>Book of Dead</h2>
+                                <p>Book of Dead — игра от Play'n GO. Основная механика: расширяющийся символ во фриспинах.</p>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="content-card content-card-slots">
+                        <a href="games.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%3EBig Bass Bonanza%3C/text%3E%3C/svg%3E" alt="Big Bass Bonanza" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Pragmatic Play</span>
+                                <h2>Big Bass Bonanza</h2>
+                                <p>Big Bass Bonanza — игра от Pragmatic Play. Основная механика: фриспины и сбор денежных символов.</p>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ИНТЕРАКТИВНОЕ СРАВНЕНИЕ ===== -->
+        <section class="section" id="slot-tool">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Интерактивный инструмент</span>
+                        <h2>Сравнить две игры</h2>
+                    </div>
+                    <a href="comparison.html">Открыть отдельную страницу →</a>
+                </div>
+                <p class="section-intro" style="color:#8aaac8; margin-bottom:20px;">Выберите две игры и сопоставьте провайдера, формат, волатильность и основную механику без перехода между карточками.</p>
+                <div class="slot-comparison" style="background:rgba(17,29,53,0.5); backdrop-filter:blur(8px); border:1px solid rgba(26,48,80,0.4); border-radius:16px; padding:24px; box-shadow:0 4px 20px rgba(0,0,0,0.15);">
+                    <div style="display:flex; gap:16px; flex-wrap:wrap; justify-content:center; margin-bottom:20px;">
+                        <select style="background:rgba(10,22,40,0.6); color:#d0e4f8; border:1px solid #1a3050; padding:10px 16px; border-radius:8px; font-size:15px; min-width:180px;">
+                            <option>Gates of Olympus</option>
+                            <option>Sweet Bonanza</option>
+                            <option>Book of Dead</option>
+                            <option>Big Bass Bonanza</option>
+                        </select>
+                        <button style="background:rgba(26,48,80,0.4); color:#4ab8ff; border:none; padding:10px 20px; border-radius:8px; font-size:20px; cursor:pointer;">⇄</button>
+                        <select style="background:rgba(10,22,40,0.6); color:#d0e4f8; border:1px solid #1a3050; padding:10px 16px; border-radius:8px; font-size:15px; min-width:180px;">
+                            <option>Sweet Bonanza</option>
+                            <option>Gates of Olympus</option>
+                            <option>Book of Dead</option>
+                            <option>Big Bass Bonanza</option>
+                        </select>
+                    </div>
+                    <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px;">
+                        <div style="background:rgba(10,22,40,0.4); border-radius:12px; padding:20px; text-align:center; border:1px solid rgba(26,48,80,0.3);">
+                            <strong style="color:#ffffff;">Gates of Olympus</strong>
+                            <p style="color:#8aaac8; font-size:14px;">Pragmatic Play · 6×5 · Высокая</p>
+                        </div>
+                        <div style="background:rgba(10,22,40,0.4); border-radius:12px; padding:20px; text-align:center; border:1px solid rgba(26,48,80,0.3);">
+                            <strong style="color:#ffffff;">Sweet Bonanza</strong>
+                            <p style="color:#8aaac8; font-size:14px;">Pragmatic Play · 6×5 · Высокая</p>
+                        </div>
+                    </div>
+                    <p style="text-align:center; color:#5a7a9a; font-size:14px; margin-top:16px;">Инструмент сопоставляет данные карточек и не прогнозирует результат игры.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ПРОВАЙДЕРЫ ===== -->
+        <section class="section" id="providers">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Разработчики</span>
+                        <h2>Провайдеры</h2>
+                    </div>
+                    <a href="providers.html">Каталог провайдеров →</a>
+                </div>
+                <div class="logo-grid">
+                    <a href="providers.html"><strong>Pragmatic Play</strong></a>
+                    <a href="providers.html"><strong>Evolution</strong></a>
+                    <a href="providers.html"><strong>PG Soft</strong></a>
+                    <a href="providers.html"><strong>Hacksaw Gaming</strong></a>
+                    <a href="providers.html"><strong>BGaming</strong></a>
+                    <a href="providers.html"><strong>Play'n GO</strong></a>
+                    <a href="providers.html"><strong>3 Oaks Gaming</strong></a>
+                    <a href="providers.html"><strong>Relax Gaming</strong></a>
+                    <a href="providers.html"><strong>Push Gaming</strong></a>
+                    <a href="providers.html"><strong>NetEnt</strong></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ПОСЛЕДНИЕ СТАТЬИ ===== -->
+        <section class="section soft" id="journal">
+            <div class="container">
+                <div class="section-head">
+                    <div>
+                        <span class="eyebrow">Редакция</span>
+                        <h2>Последние статьи</h2>
+                    </div>
+                    <a href="journal.html">Все статьи →</a>
+                </div>
+                <div class="card-grid card-grid-slots">
+                    <article class="content-card">
+                        <a href="journal.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%3EWild и Scatter%3C/text%3E%3C/svg%3E" alt="Wild и Scatter" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Механики</span>
+                                <h2>Wild и Scatter: в чём разница</h2>
+                                <p>Отличить заменяющий символ от триггера. Разбор правил, отличий версий, ограничений и связанных игровых форматов.</p>
+                                <div class="card-meta"><time datetime="2026-07-28">28.07.2026</time></div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="content-card">
+                        <a href="journal.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%EПлатежные лимиты%3C/text%3E%3C/svg%3E" alt="Платежные лимиты" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Платежи</span>
+                                <h2>Минимальные и максимальные лимиты платежей</h2>
+                                <p>Проверить ограничения банка, сети и валюты. Проверка суммы, валюты, статуса операции и данных для обращения.</p>
+                                <div class="card-meta"><time datetime="2026-07-28">28.07.2026</time></div>
+                            </div>
+                        </a>
+                    </article>
+                    <article class="content-card">
+                        <a href="journal.html">
+                            <figure class="card-media">
+                                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'%3E%3Crect width='1200' height='630' fill='%230f2040'/%3E%3Ctext x='600' y='315' font-family='sans-serif' font-size='32' fill='%234ab8ff' text-anchor='middle' dominant-baseline='middle'%EБраузер vs Приложение%3C/text%3E%3C/svg%3E" alt="Браузер или приложение" width="1200" height="630" loading="lazy">
+                            </figure>
+                            <div class="card-copy">
+                                <span>Приложение</span>
+                                <h2>Браузер или приложение: что выбрать</h2>
+                                <p>Сравнить память, обновления и безопасность. Установка, разрешения, обновления, защита устройства и выбор формата.</p>
+                                <div class="card-meta"><time datetime="2026-07-28">28.07.2026</time></div>
+                            </div>
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ОТЗЫВЫ ===== -->
+        <section class="section" id="reviews">
+            <div class="container split">
+                <div>
+                    <span class="eyebrow">Отзывы</span>
+                    <h2>4,5 из 5</h2>
+                    <p>Опубликованные отзывы доступны с оценкой, датой и тематическими метками. Для удобства раздел разбит на страницы.</p>
+                    <a class="btn ghost" href="reviews.html">Читать отзывы</a>
+                </div>
+                <div class="review-preview">
+                    <article>
+                        <strong>Иван · 5/5</strong>
+                        <p>1WIN — отличная платформа. Огромный выбор слотов, быстрые выплаты. Бонус 500% на первые депозиты очень помог стартовать. Рекомендую.</p>
+                    </article>
+                    <article>
+                        <strong>Анна · 4/5</strong>
+                        <p>Сайт нравится, интерфейс понятный. Иногда бывают задержки с выводом, но служба поддержки решает проблемы. Хорошая программа лояльности.</p>
+                    </article>
+                    <article>
+                        <strong>Дмитрий · 5/5</strong>
+                        <p>Пополнил через криптокошелёк — быстро и без комиссий. Выиграл крупную сумму, вывели в тот же день. 1WIN — надёжно!</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== ПРИЗЫВ ===== -->
+    <section class="footer-cta">
+        <div class="container">
+            <div>
+                <span>Доступ к проекту</span>
+                <h2>1WIN КАЗИНО для совершеннолетних пользователей</h2>
+                <p>Перед регистрацией проверьте правила, валюту аккаунта, бонусные ограничения и доступные способы оплаты.</p>
+            </div>
+            <a class="btn primary large" href="https://1win.promo/" rel="nofollow sponsored">Играть в 1WIN КАЗИНО</a>
         </div>
     </section>
 
-    <!-- ====== ИГРЫ ====== -->
-    <section class="section" id="games">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Игры</span>
-                <h2 class="section-title">Популярные игры</h2>
-                <p class="section-desc">
-                    Выбери свою игру и начни выигрывать прямо сейчас.
-                </p>
+    <!-- ===== ФУТЕР ===== -->
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div style="display:flex; align-items:center; gap:12px;">
+                    <!-- Замените src на путь к вашему логотипу 1win -->
+                    <img src="1win-logo.png" alt="1WIN КАЗИНО" style="height:40px; width:auto;">
+                    <span style="font-size:20px; font-weight:800; color:#ffffff;">1WIN КАЗИНО</span>
+                </div>
+                <p>Русскоязычный сайт 1WIN КАЗИНО для совершеннолетних пользователей стран СНГ. Азартная игра не является способом заработка.</p>
+                <div class="footer-trust"><span>HTTPS</span><span>18+</span><span>Проверка источников</span></div>
             </div>
-
-            <div class="games-grid">
-                <div class="game-card">
-                    <span class="game-icon">✈️</span>
-                    <span class="game-name">Aviator</span>
-                    <span class="game-tag">Самый популярный</span>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Играть</a>
-                </div>
-                <div class="game-card">
-                    <span class="game-icon">🚀</span>
-                    <span class="game-name">Lucky Jet</span>
-                    <span class="game-tag">Космические ставки</span>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Играть</a>
-                </div>
-                <div class="game-card">
-                    <span class="game-icon">🍬</span>
-                    <span class="game-name">Sweet Bonanza</span>
-                    <span class="game-tag">Сладкий выигрыш</span>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Играть</a>
-                </div>
-                <div class="game-card">
-                    <span class="game-icon">⚡</span>
-                    <span class="game-name">Gates of Olympus</span>
-                    <span class="game-tag">Боги на твоей стороне</span>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Играть</a>
-                </div>
-                <div class="game-card">
-                    <span class="game-icon">📖</span>
-                    <span class="game-name">Book of Dead</span>
-                    <span class="game-tag">Египетские приключения</span>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Играть</a>
-                </div>
-                <div class="game-card">
-                    <span class="game-icon">✨</span>
-                    <span class="game-name">Starburst</span>
-                    <span class="game-tag">Космические слоты</span>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-sm">Играть</a>
-                </div>
-            </div>
+            <div><strong>Аккаунт</strong><a href="index.html">Главная</a><a href="login.html">Вход</a><a href="bonus.html">Бонусы</a></div>
+            <div><strong>Игры</strong><a href="games.html">Каталог игр</a><a href="providers.html">Провайдеры</a><a href="comparison.html">Сравнить слоты</a></div>
+            <div><strong>Платежи</strong><a href="app.html">Приложение</a></div>
+            <div><strong>Контакты</strong><a href="contacts.html">Контакты</a><a href="reviews.html">Отзывы</a></div>
         </div>
-    </section>
-
-    <!-- ====== ПРЕИМУЩЕСТВА ====== -->
-    <section class="section" id="features">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Преимущества</span>
-                <h2 class="section-title">Всё для комфортной игры</h2>
-                <p class="section-desc">
-                    Мы создали идеальные условия для ставок и выигрышей.
-                </p>
-            </div>
-
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">📊</span>
-                    <h4>Широкая линия</h4>
-                    <p>Более 30 видов спорта и тысячи событий ежедневно</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📈</span>
-                    <h4>Высокие коэффициенты</h4>
-                    <p>Маржа от 2,5% на топ-матчи</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">💳</span>
-                    <h4>Быстрые выплаты</h4>
-                    <p>Деньги поступают на счёт без задержек</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h4>Ставки от 10 ₽</h4>
-                    <p>Минимальный порог — доступно каждому</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h4>Мобильное приложение</h4>
-                    <p>iOS, Android и ПК — играй с любого устройства</p>
-                </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🛡️</span>
-                    <h4>Надёжность</h4>
-                    <p>Лицензия ФНС РФ и работа через ЦУПИС</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== КАК НАЧАТЬ ====== -->
-    <section class="section" id="steps">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Инструкция</span>
-                <h2 class="section-title">Как начать?</h2>
-                <p class="section-desc">Всего 4 шага — и ты в игре.</p>
-            </div>
-
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">01</div>
-                    <h4>Регистрация</h4>
-                    <p>Заполни анкету за 2 минуты</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">02</div>
-                    <h4>Пополнение</h4>
-                    <p>Внеси депозит удобным способом</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">03</div>
-                    <h4>Выбор игры</h4>
-                    <p>Найди событие по душе</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">04</div>
-                    <h4>Выигрыш</h4>
-                    <p>Получай деньги моментально</p>
-                </div>
-            </div>
-
-            <div class="steps-cta">
-                <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow" class="btn btn-primary btn-lg">
-                    🚀 Зарегистрироваться
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== КОНТАКТЫ ====== -->
-    <section class="section" id="contacts">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Контакты</span>
-                <h2 class="section-title">Свяжитесь с нами</h2>
-                <p class="section-desc">
-                    Мы всегда на связи. Поддержка работает 24/7.
-                </p>
-            </div>
-
-            <div class="contacts-grid">
-                <div class="contact-card">
-                    <span class="contact-icon">📧</span>
-                    <span class="contact-label">Email</span>
-                    <a href="mailto:support@1win.social" class="contact-value">support@1win.social</a>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">📞</span>
-                    <span class="contact-label">Телефон</span>
-                    <a href="tel:+74950888899" class="contact-value">+7 495 088 88 99</a>
-                </div>
-                <div class="contact-card">
-                    <span class="contact-icon">💬</span>
-                    <span class="contact-label">Онлайн-чат</span>
-                    <span class="contact-value">Круглосуточно</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== ФУТЕР ====== -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>Информация</h4>
-                    <a href="#about">О компании</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Лицензия</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Ответственная игра</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Акции и бонусы</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Поддержка</h4>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Партнёрская программа</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Способы оплаты</a>
-                    <a href="mailto:support@1win.social">support@1win.social</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Контакты</h4>
-                    <a href="mailto:support@1win.social">support@1win.social</a>
-                    <a href="tel:+74950888899">+7 495 088 88 99</a>
-                </div>
-                <div class="footer-col">
-                    <h4>Скачать</h4>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">iOS App</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Android App</a>
-                    <a href="https://one-vv7878.com/?p=1sjz" target="_blank" rel="nofollow">Windows</a>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p>
-                    © 2026 1win. Все права защищены.<br />
-                    1win управляется компанией Carletta N.V., зарегистрированной по адресу
-                    Heelsumstraat 51, Willemstad, Curaçao, с регистрационным номером 141626.<br />
-                    Деятельность осуществляется на основании лицензии Curacao eGaming № 8048/JAZ2017-003.
-                </p>
-                <p class="footer-age">18+</p>
-            </div>
+        <div class="container footer-bottom">
+            <span>© 2026 1WIN КАЗИНО</span>
+            <span>Оператор: MFI Investments N.V.</span>
+            <span>Русская версия · СНГ · 18+</span>
         </div>
     </footer>
 
-    <!-- ====== КНОПКА НАВЕРХ ====== -->
-    <button class="scroll-top" id="scrollTop">↑</button>
+    <!-- ===== МОБИЛЬНАЯ ПАНЕЛЬ ===== -->
+    <div class="mobile-bar">
+        <a href="login.html">Войти</a>
+        <a href="https://1win.promo/" rel="nofollow sponsored">Играть</a>
+    </div>
 
-    <script type="importmap">
-        {
-            "imports": {
-                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+    <!-- ===== СКРИПТЫ ===== -->
+    <script>
+        (function() {
+            'use strict';
+
+            const ageGate = document.querySelector('[data-age-gate]');
+            const ageAccept = document.querySelector('[data-age-accept]');
+            const ageReject = document.querySelector('[data-age-reject]');
+
+            if (localStorage.getItem('ageVerified') === 'true') {
+                if (ageGate) ageGate.hidden = true;
             }
-        }
+
+            if (ageAccept) {
+                ageAccept.addEventListener('click', function() {
+                    localStorage.setItem('ageVerified', 'true');
+                    if (ageGate) ageGate.hidden = true;
+                });
+            }
+
+            if (ageReject) {
+                ageReject.addEventListener('click', function() {
+                    window.location.href = 'https://www.google.com';
+                });
+            }
+
+            const menuButton = document.querySelector('[data-menu]');
+            const nav = document.querySelector('[data-nav]');
+
+            if (menuButton && nav) {
+                menuButton.addEventListener('click', function() {
+                    nav.classList.toggle('open');
+                    const expanded = nav.classList.contains('open');
+                    menuButton.setAttribute('aria-expanded', expanded);
+                    menuButton.innerHTML = expanded ?
+                        '<i class="fas fa-times"></i> Закрыть' :
+                        '<i class="fas fa-bars"></i> Меню';
+                });
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        const headerOffset = 80;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.trust-card, .feature-grid a, .content-card, .review-preview article, .logo-grid a')
+                .forEach(el => {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(20px)';
+                    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    observer.observe(el);
+                });
+
+            console.log('1WIN КАЗИНО — сайт успешно загружен!');
+        })();
     </script>
-    <script type="module" src="js/three-scene.js"></script>
-    <script src="js/main.js"></script>
+
 </body>
 </html>
